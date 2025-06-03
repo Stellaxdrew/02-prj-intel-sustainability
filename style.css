@@ -1,1 +1,197 @@
 /* Add your CSS here */
+
+/* Intel-branded background: use a light blue for a clean, modern look */
+body {
+  background-color: #f0f4f8; /* Light blue background for Intel branding */
+  font-family: Rubik, sans-serif; /* Simple, easy-to-read font */
+  margin: 0;
+  padding: 0;
+}
+
+/* Center the header and add space around it */
+header {
+  text-align: center; /* Center all header content */
+  padding: 40px 10px 20px 10px; /* More space above and below */
+  /* Light blue gradient background for the header */
+  background: linear-gradient(135deg, #7eb1d8 0%, #197bcb 100%);
+  border-bottom: 2px solid #0071c5; /* Thin Intel blue line for branding */
+}
+
+/* Style the Intel logo */
+header img {
+  width: 120px; /* Set logo width */
+  max-width: 90vw; /* Make sure it fits on small screens */
+  margin-bottom: 16px; /* Space below logo */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Main headline style */
+header h1 {
+  font-size: 2.5em; /* Large, bold headline */
+  margin: 15px 0 8px 0;
+  color: #ffffff; /* Intel blue for strong branding */
+  font-weight: bold;
+  letter-spacing: 1px; /* Slight spacing for clarity */
+  text-shadow: 0 2px 8px #191d20; /* Soft shadow for contrast */
+}
+
+/* Subheading/description style */
+header p {
+  color: #222; /* Darker text for contrast */
+  font-size: 1.15em;
+  margin: 60px auto 20px auto; /* Add padding above and below the paragraph */
+  max-width: 500px; /* Keep subheading readable */
+  line-height: 1.5;
+}
+
+/* Timeline layout: stack vertically on small screens (default) */
+section {
+  display: flex; /* Use Flexbox for layout */
+  flex-direction: column; /* Stack cards vertically by default */
+  gap: 20px; /* Space between cards */
+  width: 100vw; /* Allow full width */
+  margin: 0 auto;
+  padding: 10px 10px;
+  overflow-x: visible; /* No horizontal scroll on small screens */
+}
+
+/* Style each timeline card for Intel's aesthetic */
+.timeline-card {
+  font-family: Rubik, Arial, sans-serif; /* Consistent, modern font */
+  background-color: #fff; /* White background for clean look */
+  border: 1px solid #e0e0e0; /* Light border for subtle separation */
+  border-radius: 10px; /* Slightly more rounded corners */
+  box-shadow: 0 2px 12px rgba(0,113,197,0.08); /* Soft Intel blue shadow */
+  margin: 0 auto 24px auto; /* Center cards and add even space below */
+  padding: 20px 18px; /* Even padding for content */
+  transition: box-shadow 0.2s, background 0.2s, transform 0.2s; /* Smooth transitions */
+  flex: 0 0 260px; /* Do not grow or shrink, set base width */
+  min-width: 260px; /* Minimum width for horizontal scroll */
+  max-width: 350px; /* Prevent cards from getting too wide */
+  color: #222; /* Consistent text color */
+}
+
+.timeline-card h2 {
+  color: #0071c5; /* Intel blue for year */
+  font-size: 1.3em;
+  margin: 0 0 5px 0;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.timeline-card h3 {
+  color: #222; /* Darker heading for contrast */
+  font-size: 1.1em;
+  margin: 0 0 12px 0;
+  font-weight: 500;
+}
+
+.timeline-card img {
+  width: 100%;
+  max-width: 250px;
+  border-radius: 6px;
+  display: block;
+  margin: 12px auto 14px auto;
+  box-shadow: 0 1px 6px rgba(0,113,197,0.07); /* Subtle blue shadow */
+}
+
+.timeline-card p {
+  color: #444;
+  font-size: 1em;
+  margin: 10px 0 0 0;
+  line-height: 1.5;
+  display: none; /* Hide by default, shown on hover */
+}
+
+/* Add a simple hover effect to cards */
+section div:hover, .timeline-card:hover {
+  background-color: #d3e1ed; /* Light blue on hover */
+  box-shadow: 0 8px 24px rgba(0,113,197,0.18); /* Bigger shadow on hover */
+  transform: scale(1.04); /* Slightly grow the card */
+  transition: box-shadow 0.2s, background 0.2s, transform 0.2s; /* Smooth transition */
+}
+
+/* Style the images inside cards */
+section img {
+  width: 250px;
+  width: 100%;
+  border-radius: 6px;
+  display: block;
+  margin: 10px auto;
+}
+
+/* Make headings stand out */
+section h2 {
+  color: #0071c5;
+  margin: 0 0 5px 0;
+  font-size: 1.3em;
+}
+
+section h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.1em;
+  color: #222;
+}
+
+section p {
+  color: #444;
+  font-size: 1em;
+}
+
+/* Hide the paragraph in each timeline card by default */
+.timeline-card p {
+  display: none; /* Hide the paragraph text */
+}
+
+/* Show the paragraph when the user hovers over the card */
+.timeline-card:hover p {
+  display: block; /* Show the paragraph text on hover */
+}
+
+/* Responsive: stack cards and make them fit small screens */
+@media (width: 600px) {
+  section {
+    padding: 10px 2px;
+  }
+  section div {
+    padding: 10px;
+  }
+  header img {
+    width: 90px;
+  }
+}
+
+/* Responsive: on screens wider than 700px, arrange cards in a row */
+@media (min-width: 700px) {
+  section {
+    flex-direction: row; /* Arrange cards in a row */
+    flex-wrap: nowrap; /* Do not wrap, keep in one line */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    justify-content: flex-start; /* Start cards from the left */
+    align-items: stretch;
+    gap: 20px; /* Space between cards */
+    padding-bottom: 20px; /* Extra space for scroll bar */
+    scroll-snap-type: x mandatory; /* Enable horizontal scroll snapping */
+    scroll-behavior: smooth; /* Smooth scrolling */
+  }
+  .timeline-card {
+    margin: 0 16px; /* Uniform horizontal spacing between cards */
+    scroll-snap-align:initial /* Snap each card to the start of the scroll area */
+  }
+  .timeline-card:first-child {
+    margin-left: 32px; /* Extra space on the left for the first card */
+  }
+  .timeline-card:last-child {
+    margin-right: 32px; /* Extra space on the right for the last card */
+  }
+}
+
+/* Style the instruction at the bottom */
+body > p {
+  text-align: center;
+  color: #555;
+  font-size: 1em;
+  margin-bottom: 20px;
+}
