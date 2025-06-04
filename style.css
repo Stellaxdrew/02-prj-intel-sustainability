@@ -13,8 +13,8 @@ header {
   text-align: center; /* Center all header content */
   padding: 40px 10px 20px 10px; /* More space above and below */
   /* Light blue gradient background for the header */
-  background: linear-gradient(135deg, #7eb1d8 0%, #197bcb 100%);
-  border-bottom: 2px solid #0071c5; /* Thin Intel blue line for branding */
+  background: linear-gradient(135deg, #2191e8 0%, #073e6a 100%);
+  border-bottom: 2px solid #2c5474; /* Thin Intel blue line for branding */
 }
 
 /* Style the Intel logo */
@@ -39,7 +39,7 @@ header h1 {
 
 /* Subheading/description style */
 header p {
-  color: #222; /* Darker text for contrast */
+  color: #fefbfb; /* Darker text for contrast */
   font-size: 1.15em;
   margin: 60px auto 20px auto; /* Add padding above and below the paragraph */
   max-width: 500px; /* Keep subheading readable */
@@ -59,17 +59,16 @@ section {
 
 /* Style each timeline card for Intel's aesthetic */
 .timeline-card {
-  font-family: Rubik, Arial, sans-serif; /* Consistent, modern font */
+  font-family: 'Rubik', Arial, sans-serif; /* Consistent, modern font */
   background-color: #fff; /* White background for clean look */
   border: 1px solid #e0e0e0; /* Light border for subtle separation */
-  border-radius: 10px; /* Slightly more rounded corners */
   box-shadow: 0 2px 12px rgba(0,113,197,0.08); /* Soft Intel blue shadow */
-  margin: 0 auto 24px auto; /* Center cards and add even space below */
+  margin: 0 auto 20px auto; /* Center cards and add even space below */
   padding: 20px 18px; /* Even padding for content */
   transition: box-shadow 0.2s, background 0.2s, transform 0.2s; /* Smooth transitions */
   flex: 0 0 260px; /* Do not grow or shrink, set base width */
   min-width: 260px; /* Minimum width for horizontal scroll */
-  max-width: 350px; /* Prevent cards from getting too wide */
+  width: 350px; /* Prevent cards from getting too wide */
   color: #222; /* Consistent text color */
 }
 
@@ -82,16 +81,20 @@ section {
 }
 
 .timeline-card h3 {
+  /* Make the subheading bold and use an innovative font */
+  font-family: 'Orbitron', Arial, sans-serif; /* Orbitron is a modern, tech-inspired font */
+  font-weight: bold; /* Make the text bold */
   color: #222; /* Darker heading for contrast */
   font-size: 1.1em;
   margin: 0 0 12px 0;
-  font-weight: 500;
+  margin-top: 20px; /* Add space above the subheading */
 }
 
 .timeline-card img {
-  width: 100%;
-  max-width: 250px;
-  border-radius: 6px;
+  /* Make all timeline card images the same size */
+  width: 230px; /* Set a fixed width */
+  height: 140px; /* Set a fixed height */
+  object-fit: cover; /* Crop images to fill the box, keeping them uniform */
   display: block;
   margin: 12px auto 14px auto;
   box-shadow: 0 1px 6px rgba(0,113,197,0.07); /* Subtle blue shadow */
@@ -100,14 +103,54 @@ section {
 .timeline-card p {
   color: #444;
   font-size: 1em;
-  margin: 10px 0 0 0;
+  margin: 0 0 0 0;
   line-height: 1.5;
   display: none; /* Hide by default, shown on hover */
 }
 
+/* Show the paragraph on top of the image when hovering over the card */
+
+/* First, make the timeline card a relative container */
+.timeline-card {
+  position: relative; /* Needed for absolute positioning inside */
+}
+
+/* Style the paragraph to overlay the entire card */
+.timeline-card p {
+  display: none; /* Hide by default */
+  position: absolute; /* Position on top of the card */
+  top: 0; /* Start at the top of the card */
+  left: 0; /* Start at the left edge */
+  right: 0; /* Stretch to the right edge */
+  bottom: 0; /* Stretch to the bottom edge */
+  width: 100%; /* Take up full width */
+  height: 100%; /* Take up full height */
+  padding: 20px 10px;
+  font-family: 'Tinos', Arial, sans-serif;
+  /* Use a light blue color with transparency so the image shows through */
+  background: rgba(13, 90, 148, 0.85); 
+  color: #fbf9f9;
+  box-sizing: border-box;
+  z-index: 2; /* Make sure it appears above the image */
+  font-size: 1.15em;
+  line-height: 1.25;
+  text-align: left; /* Align text to the left for readability */
+}
+
+/* Show the paragraph when hovering over the card */
+.timeline-card:hover p {
+  display: block;
+}
+
+/* Keep the image visible but under the paragraph */
+.timeline-card img {
+  position: relative;
+  z-index: 1;
+}
+
 /* Add a simple hover effect to cards */
 section div:hover, .timeline-card:hover {
-  background-color: #d3e1ed; /* Light blue on hover */
+  /* Use the same light blue color as the paragraph, with transparency */
   box-shadow: 0 8px 24px rgba(0,113,197,0.18); /* Bigger shadow on hover */
   transform: scale(1.04); /* Slightly grow the card */
   transition: box-shadow 0.2s, background 0.2s, transform 0.2s; /* Smooth transition */
@@ -151,7 +194,8 @@ section p {
 }
 
 /* Responsive: stack cards and make them fit small screens */
-@media (width: 600px) {
+@media (max-width: 600px) {
+  /* On small screens, add a little padding */
   section {
     padding: 10px 2px;
   }
@@ -165,26 +209,27 @@ section p {
 
 /* Responsive: on screens wider than 700px, arrange cards in a row */
 @media (min-width: 700px) {
+  /* On larger screens, show cards in a row with spacing */
   section {
     flex-direction: row; /* Arrange cards in a row */
-    flex-wrap: nowrap; /* Do not wrap, keep in one line */
-    overflow-x: auto; /* Enable horizontal scrolling */
-    justify-content: flex-start; /* Start cards from the left */
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
     align-items: stretch;
-    gap: 20px; /* Space between cards */
-    padding-bottom: 20px; /* Extra space for scroll bar */
-    scroll-snap-type: x mandatory; /* Enable horizontal scroll snapping */
-    scroll-behavior: smooth; /* Smooth scrolling */
+    gap: 20px;
+    padding-bottom: 20px;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
   }
   .timeline-card {
-    margin: 0 16px; /* Uniform horizontal spacing between cards */
-    scroll-snap-align:initial /* Snap each card to the start of the scroll area */
+    margin: 0 16px;
+    scroll-snap-align: initial;
   }
   .timeline-card:first-child {
-    margin-left: 32px; /* Extra space on the left for the first card */
+    margin-left: 32px;
   }
   .timeline-card:last-child {
-    margin-right: 32px; /* Extra space on the right for the last card */
+    margin-right: 32px;
   }
 }
 
