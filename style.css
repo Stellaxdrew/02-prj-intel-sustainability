@@ -11,7 +11,7 @@ body {
 /* Center the header and add space around it */
 header {
   text-align: center; /* Center all header content */
-  padding: 40px 10px 20px 10px; /* More space above and below */
+  padding: 40px 10px 20px 20px; /* More space above and below */
   /* Light blue gradient background for the header */
   background: linear-gradient(135deg, #2191e8 0%, #073e6a 100%);
   border-bottom: 2px solid #2c5474; /* Thin Intel blue line for branding */
@@ -30,7 +30,7 @@ header img {
 /* Main headline style */
 header h1 {
   font-size: 2.5em; /* Large, bold headline */
-  margin: 15px 0 8px 0;
+  margin: 35px 0 8px 0;
   color: #ffffff; /* Intel blue for strong branding */
   font-weight: bold;
   letter-spacing: 1px; /* Slight spacing for clarity */
@@ -44,13 +44,14 @@ header p {
   margin: 60px auto 20px auto; /* Add padding above and below the paragraph */
   max-width: 500px; /* Keep subheading readable */
   line-height: 1.5;
-}
+  font-family: 'Merriweather', serif; /* Use a serif font for a classic look */
+ }
 
 /* Timeline layout: stack vertically on small screens (default) */
 section {
   display: flex; /* Use Flexbox for layout */
   flex-direction: column; /* Stack cards vertically by default */
-  gap: 20px; /* Space between cards */
+  gap: 5px; /* Space between cards */
   width: 100vw; /* Allow full width */
   margin: 0 auto;
   padding: 10px 10px;
@@ -126,7 +127,7 @@ section {
   width: 100%; /* Take up full width */
   height: 100%; /* Take up full height */
   padding: 20px 10px;
-  font-family: 'Tinos', Arial, sans-serif;
+  font-family: 'Kantumruy Pro', serif;
   /* Use a light blue color with transparency so the image shows through */
   background: rgba(13, 90, 148, 0.85); 
   color: #fbf9f9;
@@ -203,7 +204,7 @@ section p {
     padding: 10px;
   }
   header img {
-    width: 90px;
+    width: 100px;
   }
 }
 
@@ -216,8 +217,10 @@ section p {
     overflow-x: auto;
     justify-content: flex-start;
     align-items: stretch;
-    gap: 20px;
+    gap: 5px;
+    padding-top: 15px; /* Add space above the cards */
     padding-bottom: 20px;
+    width: 100%; /* Full width for the section */
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
   }
